@@ -234,7 +234,7 @@ h1.header {
 }
 
 
-h1.header, a.header, a.name, header a {
+h1.header, a.header, a.name, header a, div.misc.vcard > * {
 	color: #fff;
 }
 
