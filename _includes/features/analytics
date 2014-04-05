@@ -1,0 +1,8 @@
+{% if site.safe and site.analytics.provider and page.analytics != false %}
+
+{% case site.analytics.provider %}
+{% when "google" %}
+  {% include providers/analytics/google %}
+{% endcase %}
+
+{% endif %}

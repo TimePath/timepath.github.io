@@ -3,7 +3,7 @@ layout: page
 title: Hello World!
 tagline: 
 ---
-{% include JB/setup %}
+{% include setup %}
 
 Not much to see here yet.
 
