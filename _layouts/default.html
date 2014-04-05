@@ -1,87 +1,104 @@
 ---
 theme:
-  name: dinky
+ name: bootstrap-3.1.1
 ---
 {% include setup %}
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
-    <meta name="author" content="{{ site.author.name }}" />
-    <title>{{ page.title }}</title>
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+		<meta name="author" content="{{ site.author.name }}" />
+		
+		<title>{{ site.title }} -{{ site.tagline }}- {{ page.title }}</title>
+		
+		<link rel="stylesheet" href="{{ ASSET_PATH }}/css/bootstrap.min.css">
+		<link rel="stylesheet" href="{{ ASSET_PATH }}/css/bootstrap-theme.min.css">
+		
+		
+		<!--[if lt IE 9]>
+			<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+			<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+		<![endif]-->
+		{% include features/analytics %}
+	</head>
+	<body>
+		<nav class="navbar navbar-default" role="navigation">
+			<div class="container">
+				<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<div class="navbar-brand" href="#">{{ site.title }}</div>
+				</div>
 
-    <link rel="stylesheet" href="{{ ASSET_PATH }}/css/styles.css">
-    <link rel="stylesheet" href="{{ ASSET_PATH }}/css/pygment_trac.css">
-    <script src="{{ ASSET_PATH }}/js/scale.fix.js"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-
-    {% include features/analytics %}
-  </head>
-  <body>
-    <div class="wrapper">
-      <header>
-        <h1 class="header"><a href="{{ HOME_PATH }}">{{ site.title }}</a></h1>
-        <p class="header">{{ site.tagline }}</p>
-        <ul>
-          {% assign pages_list = site.pages %}
-          {% assign group = 'navigation' %}
-          {% include pages_list %}
-        </ul>
-        {% if site.ads.google %}
-        <div class="misc ad">
-          <script type="text/javascript"><!--
-            google_ad_client = "{{ site.ads.google.client }}";
-            google_ad_slot = "{{ site.ads.google.slot }}";
-            google_ad_width = {{ site.ads.google.width }};
-            google_ad_height = {{ site.ads.google.height }};
-            //-->
-          </script>
-          <script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script>
-        </div>
-        {% endif %}
-        {% if site.author %}
-        <div class="misc vcard">
-          <h4>about</h4>
-          <ul>
-            {% if site.author.email %}
-            <li class="contact"><address><span class="author fn n">{{ site.author.name }}</span> - <span class="fn email">{{ site.author.email }}</span></address></li>
-            {% endif %}
-            {% if site.author.github %}
-            <li class="github"><a href="http://github.com/{{ site.author.github }}/" rel="me">github.com/{{ site.author.github }}</a></li>
-            {% endif %}
-            {% if site.author.twitter %}
-            <li class="twitter"><a href="http://twitter.com/{{ site.author.twitter }}/" rel="me">twitter.com/{{ site.author.twitter }}</a></li>
-            {% endif %}
-            {% if site.author.facebook %}
-            <li class="facebook"><a href="http://facebook.com/{{ site.author.facebook }}/" rel="me">facebook.com/{{ site.author.facebook }}</a></li>
-            {% endif %}
-            {% if site.author.flickr %}
-            <li class="flickr"><a href="http://flickr.com/{{ site.author.flickr }}/" rel="me">flickr.com/{{ site.author.flickr }}</a></li>
-            {% endif %}
-            {% if site.author.yelp %}
-            <li class="yelp"><a href="http://{{ site.author.yelp }}.yelp.com/" rel="me">{{ site.author.yelp }}.yelp.com</a></li>
-            {% endif %}
-            {% if site.author.pinterest %}
-            <li class="pinterest"><a href="http://pinterest.com/{{ site.author.pinterest }}" rel="me">pinterest.com/{{ site.author.pinterest }}</a></li>
-            {% endif %}
-          </ul>
-        </div><!-- misc -->
-        {% endif %}
-      </header>
-
-      <section>
-      {{ content }}
-      </section>
-
-      <footer>
-      <p><small>Hosted on <a href="http://pages.github.com/">GitHub Pages</a> using the <a href="https://github.com/sodabrew/theme-dinky">Dinky theme</a></small></p>
-      </footer>
-    </div>
-    <!--[if !IE]><script>fixScale(document);</script><!--<![endif]-->
-  </body>
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav">
+						{% assign pages_list = site.pages %}
+						{% assign group = 'navigation' %}
+						{% include pages_list %}
+						
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Extra <b class="caret"></b></a>
+							<ul class="dropdown-menu">
+								{% assign pages_list = site.pages %}
+								{% assign group = 'extra' %}
+								{% include pages_list %}
+							</ul>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+	
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-8 blog-main">
+					{{ content }}
+				</div>
+				
+				<div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+					<!--<h4>Archives</h4>
+					<div class="well">
+						<ol class="list-unstyled">
+							{% for post in site.posts %}
+								{% capture this_month %}{{ post.date | date: "%B" }}{% endcapture %}
+								{% capture last_month %}{{ post.previous.date | date: "%B" }}{% endcapture %}
+								{% if this_month != last_month %}
+									<li><a href="#">{{ post.date | date: "%B %Y" }}</a></li>
+								{% endif %}
+							{% endfor %}
+						</ol>
+					</div>-->
+					
+					<h4>Elsewhere</h4>
+					<div class="well">
+						<ol class="list-unstyled">
+							{% if site.author.github %}
+							<li class="github"><a href="http://github.com/{{ site.author.github }}/" rel="me">GitHub</a></li>
+							{% endif %}
+							{% if site.author.twitter %}
+							<li class="twitter"><a href="http://twitter.com/{{ site.author.twitter }}/" rel="me">Twitter</a></li>
+							{% endif %}
+						</ol>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<footer class="navbar navbar-default navbar-fixed-bottom" role="navigation">
+			<div class="container">
+				<p><small>Hosted on <a href="http://pages.github.com/">GitHub Pages</a></small></p>
+				<p><a href="#">Back to top</a></p>
+			</div>
+		</footer>
+		
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+		<script src="{{ ASSET_PATH }}/js/bootstrap.min.js"></script>
+	</body>
 </html>
-

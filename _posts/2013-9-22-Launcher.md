@@ -6,4 +6,4 @@ tags : [releases]
 ---
 {% include setup %}
 
-Auto updater, get it [here](http://dl.dropboxusercontent.com/u/42745598/bin/Launcher.jar)
+Auto updater, [same place](http://dl.dropboxusercontent.com/u/42745598/bin/Launcher.jar)

@@ -1,0 +1,19 @@
+---
+layout: page
+title : Index
+group: navigation
+---
+{% include setup %}
+
+{% for post in site.posts  %}
+	<div class="page-header">
+		<h1>
+			<a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a>
+			<br/>
+			<small>{{ post.date | date: "%B %e, %Y" }}</small>
+		</h1>
+	</div>
+	<div class="well">
+		{{ post.content }}
+	</div>
+{% endfor %}
