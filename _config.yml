@@ -17,6 +17,8 @@ author:
 #
 production_url: http://timepath.github.io
 
+markdown: kramdown
+
 # Main page paths
 #
 archive_path: /archive.html
