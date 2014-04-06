@@ -1,9 +1,7 @@
 ---
 layout: post
-category : releases
 tagline: "For everything"
-tags : [releases]
+tags : [updates, launcher]
 ---
-{% include setup %}
 
 Auto updater, [same place](http://dl.dropboxusercontent.com/u/42745598/bin/Launcher.jar)

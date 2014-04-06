@@ -1,8 +1,8 @@
 {% if site.comments.provider and page.comments != false %}
 
-{% case site.comments.provider %}
-{% when "disqus" %}
-  {% include providers/comments/disqus %}
-{% endcase %}
+	{% case site.comments.provider %}
+		{% when "disqus" %}
+			{% include providers/comments/disqus %}
+	{% endcase %}
 
 {% endif %}

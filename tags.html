@@ -21,7 +21,7 @@ group: navigation
 		{% for tag in tags_list %} 
 			<li class="list-group-item">
 				<span class="badge">{{ tag[1].size }}</span>
-				<a href="{{ BASE_PATH }}{{ site.tags_path }}#{{ tag[0] }}-ref">
+				<a href="{{ BASE_PATH }}{{ site.tags_path }}#{{ tag[0] }}">
 					{{ tag[0] }}
 				</a>
 			</li>
@@ -33,7 +33,7 @@ group: navigation
 {% for tag in site.tags %} 
 	<div class="panel panel-default">
 		<div class="panel-heading">
-			<h3 class="panel-title" id="{{ tag[0] }}-ref">
+			<h3 class="panel-title" id="{{ tag[0] }}">
 				{{ tag[0] }}
 			</h3>
 		</div>
