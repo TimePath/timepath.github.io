@@ -2,8 +2,7 @@
 layout: default
 ---
 {% include setup %}
+{% if page.header %}<h2>{{ page.header }}</h2>{% endif %}
 <section>
-
-  {{ content }}
-
+	{{ content }}
 </section>

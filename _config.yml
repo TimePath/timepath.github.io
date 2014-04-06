@@ -23,11 +23,9 @@ excerpt_separator: '\n\n'
 
 # Main page paths
 #
-archive_path: /archive.html
+archive_path: /archive
+tags_path: /tags
 
-categories_path: /categories.html
-
-tags_path: /tags.html
 atom_path: /atom.xml
 rss_path: /rss.xml
 
